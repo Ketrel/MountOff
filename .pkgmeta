@@ -1,0 +1,10 @@
+package-as: MountOff-Redux
+
+move-folders:
+    MountOff-Redux/MountOff-Redux: MountOff-Redux
+
+ignore:
+    - README.md
+
+#manual-changelog: CHANGELOG.md
+
