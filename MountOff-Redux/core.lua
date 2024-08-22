@@ -13,8 +13,12 @@ function SlashCmdList.MOUNTOFF (args)
 				if mount and C_MountJournal.GetMountUsabilityByID(mount, true) then
 					C_MountJournal.SummonByID(mount)
 					break
+                elseif mount and C_MountJournal.GetMountUsabilityByID(mount, false) then
+                    print("You can ride the same mount as your target... if you go outside.")
+                    break
 				elseif mount then
 					print("Target is riding a mount you cannot use.")
+                    break
 				end
 			end
 		end
