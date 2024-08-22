@@ -11,15 +11,17 @@ function SlashCmdList.MOUNTOFF (args)
             buff = C_TooltipInfo.GetUnitBuff("target",i)
             if buff and buff.id then
                 mount = C_MountJournal.GetMountFromSpell(buff.id)
-                if mount and C_MountJournal.GetMountUsabilityByID(mount, true) then
-                    C_MountJournal.SummonByID(mount)
-                    break
-                elseif mount and C_MountJournal.GetMountUsabilityByID(mount, false) then
-                    print("You can ride the same mount as your target... if you go outside.")
-                    break
-                elseif mount then
-                    print("Target is riding a mount you cannot use.")
-                    break
+                if mount
+                    if C_MountJournal.GetMountUsabilityByID(mount, true) then
+                        C_MountJournal.SummonByID(mount)
+                        break
+                    elseif C_MountJournal.GetMountUsabilityByID(mount, false) then
+                        print("You can ride the same mount as your target... if you go outside.")
+                        break
+                    else
+                        print("Target is riding a mount you cannot use.")
+                        break
+                    end
                 end
             end
         end
