@@ -7,7 +7,8 @@ function SlashCmdList.MOUNTOFF (args)
 	if UnitIsPlayer("target") then
 		local buff = nil
 		local mount = nil
-		for i = 1,40 do b = C_TooltipInfo.GetUnitBuff("target",i)
+		for i = 1,40 do
+            buff = C_TooltipInfo.GetUnitBuff("target",i)
 			if buff and buff.id then
 				mount = C_MountJournal.GetMountFromSpell(buff.id)
 				if mount and C_MountJournal.GetMountUsabilityByID(mount, true) then
