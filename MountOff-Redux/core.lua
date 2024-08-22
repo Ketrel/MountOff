@@ -11,7 +11,7 @@ function SlashCmdList.MOUNTOFF (args)
             buff = C_TooltipInfo.GetUnitBuff("target",i)
             if buff and buff.id then
                 mount = C_MountJournal.GetMountFromSpell(buff.id)
-                if mount
+                if mount then
                     if C_MountJournal.GetMountUsabilityByID(mount, true) then
                         C_MountJournal.SummonByID(mount)
                         break
