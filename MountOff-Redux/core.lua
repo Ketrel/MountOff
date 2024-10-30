@@ -4,7 +4,8 @@ function SlashCmdList.MOUNTOFF (args)
         SendSystemMessage("/mountoff [help] - without parameters: mounts the same mount as the target, if available.  With the 'help' parameter: prints this message.")
         return
     end
-    if UnitIsPlayer("target") then
+
+    if UnitIsPlayer("target") or (select(6,strsplit('-', UnitGUID("target")))) == '224220' then
         local buff = nil
         local mount = nil
         for i = 1,40 do
@@ -26,17 +27,4 @@ function SlashCmdList.MOUNTOFF (args)
             end
         end
     end
---    local id = C_MountJournal.GetMountIDs();
---    for i = 1, 40 do
---        local b = C_TooltipInfo.GetUnitBuff("target", i);
---        if b == nil then break end
---        b = b.id
---        for _, v in pairs(id) do
---            local x, n = C_MountJournal.GetMountInfoByID(v)
---            if b == n then
---                C_MountJournal.SummonByID(v)
---                break
---            end
---        end
---    end
 end
