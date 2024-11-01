@@ -5,7 +5,7 @@ function SlashCmdList.MOUNTOFF (args)
         return
     end
 
-    if UnitIsPlayer("target") or (select(6,strsplit('-', UnitGUID("target")))) == '224220' then
+    if UnitIsPlayer("target") or (UnitGUID("target") ~= nil and (select(6,strsplit('-', UnitGUID("target")))) == '224220') then
         local buff = nil
         local mount = nil
         for i = 1,40 do
